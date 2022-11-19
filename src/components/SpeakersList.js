@@ -1,7 +1,6 @@
 import SpeakerCard from "./Speaker";
 import ReactPlaceholder from "react-placeholder/lib";
 import useRequestRest, {REQUEST_STATUS} from "./hooks/useRequestRest";
-import {data} from "../../SpeakerData";
 import {useContext} from "react";
 import {SpeakerFilterContext} from "./contexts/SpeakerFilterContext";
 import SpeakerAdd from "./SpeakerAdd";
@@ -23,7 +22,7 @@ const SpeakersList = () => {
         Error: <b>loading Speaker Data Failed {error}</b>
       </div>
     );
-    
+
   /* 
   if (isLoading === true)
     return (
