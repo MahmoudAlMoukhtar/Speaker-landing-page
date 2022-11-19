@@ -1,6 +1,7 @@
 import {useContext, useState} from "react";
 import {SpeakerFilterContext} from "./contexts/SpeakerFilterContext";
 import {SpeakerContext, SpeakerProvider} from "./contexts/SpeakerContext";
+import SpeakerDelete from "./SpeakerDelete";
 const Sesstion = ({title, RoomName}) => {
   return (
     <span className="text-gray-500 bg-gray-200 p-2 text-xs">
