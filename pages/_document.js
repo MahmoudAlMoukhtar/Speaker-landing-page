@@ -25,6 +25,11 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link href="css/local-styles.css" rel="stylesheet" />
+          <link
+            rel="shortcut icon"
+            href="/images/SVCClogo.png"
+            type="image/x-icon"
+          />
         </Head>
         <body>
           <Main />
