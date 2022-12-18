@@ -38,7 +38,7 @@ const SpeakersList = () => {
       className="speakerlist-placeholder animate-pulse"
       ready={requestStatus === REQUEST_STATUS.SUCCESS}
     >
-      <div className="container mx-auto speaker-list flex flex-wrap items-start justify-center content-center gap-x-20">
+      <div className="speaker-list flex flex-wrap items-start justify-center xl:justify-between content-center gap-x-10">
         {speakerData
           .filter(speaker => {
             return (
@@ -48,7 +48,9 @@ const SpeakersList = () => {
           })
           .filter(function (speaker) {
             return speaker.sessions.find(sesstion => {
-              return sesstion.eventYear === eventYear;
+              return eventYear !== "All Sesstion"
+                ? sesstion.eventYear === eventYear
+                : true;
             });
           })
 

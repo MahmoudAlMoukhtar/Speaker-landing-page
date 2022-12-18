@@ -11,7 +11,7 @@ function Layout({startingTheme, children}) {
       <div
         className={
           theme === "light"
-            ? "container mx-auto "
+            ? "flex flex-col mx-4 sm:mx-10 "
             : " px-10 bg-gray-700 text-white"
         }
       >

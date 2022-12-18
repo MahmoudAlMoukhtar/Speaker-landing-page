@@ -1,21 +1,6 @@
 {
   "speakers": [
     {
-      "id": "47345",
-      "first": "test",
-      "last": "test",
-      "sessions": [
-        {
-          "id": "88888",
-          "title": "New Sesstion For test",
-          "room": {
-            "name": "Main Ball Room"
-          },
-          "eventYear": "2012"
-        }
-      ]
-    },
-    {
       "id": "1269",
       "first": "Arun",
       "last": "Gupta",

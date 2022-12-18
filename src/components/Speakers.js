@@ -6,8 +6,10 @@ import {SpeakerFilterProvider} from "./contexts/SpeakerFilterContext";
 const Speakers = () => {
   return (
     <SpeakerFilterProvider startingShowSessions={true}>
-      <Toolbar />
-      <SpeakersList />
+      <div className="">
+        <Toolbar />
+        <SpeakersList />
+      </div>
     </SpeakerFilterProvider>
   );
 };

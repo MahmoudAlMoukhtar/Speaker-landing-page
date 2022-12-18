@@ -2,9 +2,10 @@ import {useState} from "react";
 
 function useSpeakerFilter(startingShowSessions, startingEventYear) {
   const [showSessions, setShowSessions] = useState(startingShowSessions);
-  const [eventYear, setEventYear] = useState(startingEventYear);
+  const [eventYear, setEventYear] = useState("All Sesstion");
   const [searchQuery, setSearchQuery] = useState("");
   const EVENT_YEARS = [
+    "All Sesstion",
     "2008",
     "2009",
     "2010",

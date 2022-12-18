@@ -17,8 +17,8 @@ const Toolbar = () => {
   return (
     <section className="toolbar dark-theme-header">
       <div className="container mx-auto">
-        <div className=" flex justify-between">
-          <ul className="toolrow flex ">
+        <div className=" ">
+          <ul className="toolrow flex justify-between">
             <b>Show Sesstion &nbsp;&nbsp;</b>
             <li>
               <label className="fav">

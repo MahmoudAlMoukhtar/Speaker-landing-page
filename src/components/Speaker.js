@@ -1,7 +1,8 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {SpeakerFilterContext} from "./contexts/SpeakerFilterContext";
 import {SpeakerContext, SpeakerProvider} from "./contexts/SpeakerContext";
 import SpeakerDelete from "./SpeakerDelete";
+import {IoIosArrowDropupCircle, IoIosArrowDropdownCircle} from "react-icons/io";
 const Sesstion = ({title, RoomName}) => {
   return (
     <span className="text-gray-500 bg-gray-200 p-2 text-xs">
@@ -10,29 +11,40 @@ const Sesstion = ({title, RoomName}) => {
   );
 };
 
-const Sessions = () => {
+const Sessions = ({showAllSesstions}) => {
   const {eventYear} = useContext(SpeakerFilterContext);
   const {
     speaker: {sessions},
   } = useContext(SpeakerContext);
+  const sectionsAfterHandle =
+    showAllSesstions === false
+      ? sessions
+          .filter(function (session) {
+            return eventYear !== "All Sesstion"
+              ? session.eventYear === eventYear
+              : true;
+          })
+          .slice(0, 3)
+      : sessions.filter(function (session) {
+          return eventYear !== "All Sesstion"
+            ? session.eventYear === eventYear
+            : true;
+        });
+
   return (
     <div
       id="container-lucter"
-      className="flex flex-col gap-y-4 justify-start justify-self-end border-2 border-gray-400 w-full"
+      className="flex flex-col gap-y-4 justify-start justify-self-end border-2 border-gray-400 w-full transition duration-200"
     >
-      {sessions
-        .filter(function (session) {
-          return session.eventYear === eventYear;
-        })
-        .map(function (session) {
-          return (
-            <Sesstion
-              title={session.title}
-              RoomName={session.room.name}
-              key={session.id}
-            />
-          );
-        })}
+      {sectionsAfterHandle.map(function (session) {
+        return (
+          <Sesstion
+            title={session.title}
+            RoomName={session.room.name}
+            key={session.id}
+          />
+        );
+      })}
     </div>
   );
 };
@@ -130,6 +142,8 @@ const SpeakerInfo = () => {
 };
 const SpeakerCard = ({speaker, updateRecord, insertRecord, deleteRecord}) => {
   const {showSessions} = useContext(SpeakerFilterContext);
+  const [showAllSesstions, setShowAllSesstions] = useState(false);
+
   return (
     <SpeakerProvider
       speaker={speaker}
@@ -139,13 +153,25 @@ const SpeakerCard = ({speaker, updateRecord, insertRecord, deleteRecord}) => {
     >
       <div
         id="card-speaker"
-        className="flex flex-col justify-start items-center gap-y-8 w-80 shadow-2xl p-2 w-72 transition duration-300  hover:scale-105 my-2 cursor-pointer"
+        className="flex flex-col justify-start items-center gap-y-8 w-80 shadow-2xl p-2 w-72 transition duration-300  my-2"
       >
         <SpeakerImg />
         <SpeakerInfo />
 
-        {showSessions === true && <Sessions />}
-        <SpeakerDelete />
+        {showSessions === true && (
+          <Sessions showAllSesstions={showAllSesstions} />
+        )}
+        <button
+          onClick={() => {
+            setShowAllSesstions(!showAllSesstions);
+          }}
+        >
+          {showAllSesstions ? (
+            <IoIosArrowDropupCircle size={30} />
+          ) : (
+            <IoIosArrowDropdownCircle size={30} />
+          )}
+        </button>
       </div>
     </SpeakerProvider>
   );
