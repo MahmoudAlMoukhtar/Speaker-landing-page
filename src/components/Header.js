@@ -14,7 +14,10 @@ const Header = () => {
           <div className="flex gap-2 items-center">
             <h4 className="hidden sm:block">Hello Mr. Smith</h4>
             <span className="shadow-md sm:p-2 p-1 border-2 border-gray-100">
-              <a href="#" className="text-blue-400 font-semibold">
+              <a
+                href="#"
+                className="text-blue-400 font-normal text-xs sm:font-semibold sm:text-md"
+              >
                 Sign-out
               </a>
             </span>
