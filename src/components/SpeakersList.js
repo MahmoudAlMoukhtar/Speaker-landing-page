@@ -38,7 +38,7 @@ const SpeakersList = () => {
       className="speakerlist-placeholder animate-pulse"
       ready={requestStatus === REQUEST_STATUS.SUCCESS}
     >
-      <div className="speaker-list flex flex-wrap items-start justify-center xl:justify-between content-center gap-x-10">
+      <div className="speaker-list flex flex-wrap items-start justify-center xl:justify-center content-center gap-x-10">
         {speakerData
           .filter(speaker => {
             return (

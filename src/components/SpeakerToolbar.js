@@ -18,9 +18,9 @@ const Toolbar = () => {
     <section className="toolbar dark-theme-header">
       <div className="container mx-auto">
         <div className=" ">
-          <ul className="toolrow flex justify-between">
-            <b>Show Sesstion &nbsp;&nbsp;</b>
-            <li>
+          <ul className="toolrow flex lg:justify-between gap-2 flex-col justify-center lg:flex-row items-center p-2">
+            <div className="w-full lg:w-auto flex justify-between items-center gap-2">
+              <b>Show Sesstion &nbsp;&nbsp;</b>
               <label className="fav">
                 <input
                   type="checkbox"
@@ -31,44 +31,25 @@ const Toolbar = () => {
                 />
                 <span className="switch"></span>
               </label>
-            </li>
-            <li className="flex">
-              <label className="dropdown">
-                <strong className={theme === "dark" && "text-white"}>
-                  Theme
-                </strong>
-                <select
-                  className="from-control theme"
-                  value={theme}
-                  onChange={event => {
-                    setTheme(event.target.value);
-                  }}
-                >
-                  <option value="light">Light</option>
-                  <option value="dark">Dark</option>
-                </select>
-              </label>
-            </li>
+            </div>
 
-            <li>
-              <div className="input-group flex">
-                <input
-                  type="text"
-                  className="from-control"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onInput={event => {
-                    setSearchQuery(event.target.value);
-                  }}
-                />
-                <div className="input-group-append">
-                  <button className="" type="button">
-                    <i className="fa fa-search"></i>
-                  </button>
-                </div>
-              </div>
-            </li>
-            <li className="flex">
+            <label className="dropdown flex justify-between w-full lg:w-auto items-center gap-2">
+              <strong className={theme === "dark" && "text-white"}>
+                Theme
+              </strong>
+              <select
+                className="from-control theme"
+                value={theme}
+                onChange={event => {
+                  setTheme(event.target.value);
+                }}
+              >
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </label>
+
+            <div className="w-full flex justify-between lg:w-auto items-center gap-2">
               <strong className={theme == "dark" ? "text-white" : "text-black"}>
                 Year
               </strong>
@@ -89,7 +70,24 @@ const Toolbar = () => {
                   })}
                 </select>
               </label>
-            </li>
+            </div>
+
+            <div className="input-group w-full flex justify-between lg:w-auto items-center gap-2">
+              <input
+                type="text"
+                className="from-control "
+                placeholder="Search..."
+                value={searchQuery}
+                onInput={event => {
+                  setSearchQuery(event.target.value);
+                }}
+              />
+              <div className="input-group-append">
+                <button className="" type="button">
+                  <i className="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
           </ul>
         </div>
       </div>
