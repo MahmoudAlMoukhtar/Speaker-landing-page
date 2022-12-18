@@ -33,7 +33,7 @@ const Toolbar = () => {
               </label>
             </div>
 
-            <label className="dropdown flex justify-between w-full lg:w-auto items-center gap-2">
+            <label className="text-black dropdown flex justify-between w-full lg:w-auto items-center gap-2">
               <strong className={theme === "dark" && "text-white"}>
                 Theme
               </strong>
@@ -49,7 +49,7 @@ const Toolbar = () => {
               </select>
             </label>
 
-            <div className="w-full flex justify-between lg:w-auto items-center gap-2">
+            <div className="text-black w-full flex justify-between lg:w-auto items-center gap-2">
               <strong className={theme == "dark" ? "text-white" : "text-black"}>
                 Year
               </strong>
